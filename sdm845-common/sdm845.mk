@@ -19,9 +19,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     $(LOCAL_PATH)/overlay-system
-
-# Exclude GAPPS /Gives bootloop
-#TARGET_DISABLES_GAPPS := true
+    
+# Exclude GAPPS
+TARGET_DISABLES_GAPPS := true
 
 # Permissions
 PRODUCT_COPY_FILES += \

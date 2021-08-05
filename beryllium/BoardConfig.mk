@@ -28,9 +28,6 @@ TARGET_SCREEN_DENSITY := 440
 TARGET_USES_COLOR_METADATA := true
 TARGET_USES_DRM_PP := true
 
-# SElinux
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
 # Kernel
 TARGET_KERNEL_CONFIG := beryllium_defconfig
 
