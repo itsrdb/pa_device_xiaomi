@@ -94,6 +94,10 @@ case "$target" in
     "sdm845")
         case "$soc_hwplatform" in
             *)
+                if [ "$soc_hwver" == "196608" ]; then # version 0x30000 is 3D sku
+                    setprop ro.sf.hwrotation 90
+                fi
+                
                 if [ $fb_width -le 1600 ]; then
                     setprop vendor.display.lcd_density 560
                 else
@@ -153,9 +157,4 @@ fi
 if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
     gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
     setprop vendor.gpu.available_frequencies "$gpu_freq"
-fi
-
-# Rotatoin stuff
-if [ "$soc_hwver" == "196608" ]; then # version 0x30000 is 3D sku
-    setprop ro.sf.hwrotation 90
 fi
